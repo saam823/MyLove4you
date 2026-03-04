@@ -13,7 +13,7 @@ body {
     overflow: hidden;
 }
 
-/* الخلفية + نجوم */
+/* خلفية النجوم السوداء */
 #bg {
     position: fixed;
     width: 100%;
@@ -95,34 +95,36 @@ button:hover { background: #ccc; }
 
 <div id="bg"></div>
 
-<div class="box hidden" id="gameBox">
-<div id="q1">
-<h2>عندي سؤال </h2>
-<p>تحبيني هواي لو شوي؟</p>
-<button onclick="next('q2')">احبك هواي</button>
-<button onclick="next('q2')">ماحبك اصلا</button>
-</div>
-
-<div id="q2" class="hidden">
-<h2>سؤال ثاني </h2>
-<p>بس اني احبج اكثر , تريدين تشوفين؟</p>
-<button onclick="showFinal()">اي طبعاً</button>
-<button onclick="showFinal()">غصبا عنج اي</button>
-</div>
-
-<div id="final" class="hidden">
-<h2 id="msgTitle"></h2>
-<p id="msgText"></p>
-</div>
-</div>
-
 <!-- زر البداية -->
-<button id="startBtn">ابدأ </button>
+<button id="startBtn">ابدأ ❤️</button>
+
+<div class="box hidden" id="gameBox">
+  <div id="q1">
+    <h2>عندي سؤال </h2>
+    <p>تحبيني هواي لو شوي؟</p>
+    <button onclick="next('q2')">احبك هواي</button>
+    <button onclick="next('q2')">ماحبك اصلا</button>
+  </div>
+
+  <div id="q2" class="hidden">
+    <h2>سؤال ثاني </h2>
+    <p>بس اني احبج اكثر , تريدين تشوفين؟</p>
+    <button onclick="showFinal()">اي طبعاً</button>
+    <button onclick="showFinal()">غصبا عنج اي</button>
+  </div>
+
+  <div id="final" class="hidden">
+    <h2 id="msgTitle"></h2>
+    <p id="msgText"></p>
+  </div>
+</div>
 
 <audio id="music" loop>
 <source src="song.mp3" type="audio/mpeg">
 </audio>
-<audio id="typeSound"><source src="type.mp3" type="audio/mpeg"></audio>
+<audio id="typeSound">
+<source src="type.mp3" type="audio/mpeg">
+</audio>
 
 <script>
 // نجوم
@@ -138,12 +140,10 @@ for (let i = 0; i < 100; i++) {
 var music = document.getElementById("music");
 var typeSound = document.getElementById("typeSound");
 
+// زر البداية
 document.getElementById("startBtn").addEventListener("click", function(){
-    // شغل الصوت
     music.play();
-    // إخفاء زر البداية
     this.style.display = "none";
-    // أظهر الأسئلة
     document.getElementById("gameBox").classList.remove("hidden");
 });
 
@@ -165,8 +165,7 @@ function showFinal(){
   اتمنى لو انت يمي هسة واكدر ابوسج من كل مكان بوجهج حتى اشوفج شلون احبج 
   بالواقع مو بس حجي , انت تعنيلي كل شي بحياتي , اصلا حياتي بدت 
   من عرفتج , بدونج عبالك حياتي ابيض واسود وبس دخلتيها تلونت بالوان لطافتج وكلامج 
-  الحلو الي , كل الي كتبته هو جزء بسيط من حبي الج وبس نلتقي راح تشوفين كل حبي
-";
+  الحلو الي , كل الي كتبته هو جزء بسيط من حبي الج وبس نلتقي راح تشوفين كل حبي";
     typeText("msgTitle", title, 0, () => typeText("msgText", text, 0, null));
 }
 
